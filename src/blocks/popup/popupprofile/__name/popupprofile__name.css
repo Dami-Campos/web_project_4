@@ -1,0 +1,8 @@
+.popupprofile__name {
+  margin-top: 40px;
+  width: 358px;
+  border-style: none none solid;
+}
+.popupprofile__name:invalid {
+  border-bottom: 1px solid red;   
+}

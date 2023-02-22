@@ -1,0 +1,13 @@
+@import url(./profile.css);
+@import url(./__avatar-image/profile__avatar-image.css);
+@import url(./__avatar/profile__avatar.css);
+@import url(./__button-image/profile__button-image.css);
+@import url(./__button/profile__button.css);
+@import url(./__explorador/profile__explorador.css);
+@import url(./__info/profile__info.css);
+@import url(./__name-rectangle/profile__name-rectangle.css);
+@import url(./__name/profile__name.css);
+@import url(./__rectangle/profile__rectangle.css);
+@import url(./__add/profile__add.css);
+@import url(./__vector/profile__vector.css);
+@import url(./__another-resolution/profile__another-resolution.css);

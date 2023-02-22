@@ -1,11 +1,12 @@
-import Card from "../scripts/cards.js"
-import Popup from "./popup.js"
-import PopupWithForm from "./popupWithForm.js";
-import FormValidator from "./validate.js";
-import previewPopup from "./popupWithImage.js"
-import Section from "./section.js"
-import UserInfo from "./userInfo.js"
-import { initialCards, selectors, formsElements } from "./utils/utils.js";
+import "./pages/index.css"
+import Card from "./scripts/cards.js"
+import Popup from "./scripts/popup.js"
+import PopupWithForm from "./scripts/popupWithForm.js";
+import FormValidator from "./scripts/validate.js";
+import previewPopup from "./scripts/popupWithImage.js"
+import Section from "./scripts/section.js"
+import UserInfo from "./scripts/userInfo.js"
+import { initialCards, selectors, formsElements } from "./scripts/utils/utils.js";
 
 
 formsElements.forEach((form) => {

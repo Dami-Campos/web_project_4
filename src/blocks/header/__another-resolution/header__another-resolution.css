@@ -1,0 +1,21 @@
+@media screen and (max-width: 502px) {
+  .header {
+    max-width: 100%;
+    margin-top: 0;
+    position: relative;
+    z-index: 1;
+  }
+    
+  .header__vector {
+    max-width: 126px;
+    height: 24px;
+    margin-left: 27px;
+    margin-top: 28px;
+    margin-bottom: 0;
+  }
+    
+  .header__line {
+    width: 100%;
+    margin-top: 32px;
+  }
+}

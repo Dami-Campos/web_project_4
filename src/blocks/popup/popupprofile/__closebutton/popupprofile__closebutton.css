@@ -1,0 +1,11 @@
+.popupprofile__closebutton {
+  height: 40px;
+  max-width: 40px;
+  background: none;
+  border: none;
+  }
+
+.popupprofile__closebutton:hover {
+  opacity: 0.5;
+}
+            

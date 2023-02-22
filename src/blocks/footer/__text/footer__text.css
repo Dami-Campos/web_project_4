@@ -1,0 +1,12 @@
+.footer__text {
+  width: 318px;
+  height: 18px;
+  margin-left: 0;
+  margin-bottom: 60px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #545454;
+}

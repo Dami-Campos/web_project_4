@@ -1,0 +1,11 @@
+.popupprofile__job {
+  width: 358px;
+  border-style: none none solid;
+  position: relative;
+  z-index: 5;
+}
+
+.popupprofile__job:invalid {
+  border-bottom: 1px solid red;
+}
+    

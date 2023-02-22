@@ -1,0 +1,16 @@
+@media screen and (max-width: 502px) {
+  .footer {
+    max-width: 90%;
+  }
+    
+  .footer__text {
+    max-width: 100%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    
+  }
+    
+}

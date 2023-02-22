@@ -1,0 +1,9 @@
+.popup__active {
+  background: rgba(0, 0, 0, 0.5);
+  min-width: 100%;
+  height: 100%;
+  position: fixed;
+  margin-left: -312px;
+  display: block;
+  z-index: 6;
+}

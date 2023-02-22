@@ -1,0 +1,13 @@
+.profile__rectangle {
+  width: 24px;
+  height: 24px;
+  margin-top: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile__rectangle:hover {
+  opacity: 0.6;
+}

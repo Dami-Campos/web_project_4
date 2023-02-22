@@ -1,0 +1,7 @@
+.profile__name-rectangle {
+  width: 415px;
+  margin-bottom: -15px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

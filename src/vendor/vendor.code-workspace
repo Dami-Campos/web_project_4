@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../pages"
+		},
+		{
+			"path": "../blocks"
+		},
+		{
+			"path": "../fonts"
+		},
+		{
+			"path": "../images"
+		},
+		{
+			"path": "../scripts"
+		}
+	]
+}

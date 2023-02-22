@@ -1,0 +1,12 @@
+.profile__explorador {
+  position: absolute;
+  max-width: 415px;
+  height: 22px;
+  margin-top: 0;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFFFFF; 
+}

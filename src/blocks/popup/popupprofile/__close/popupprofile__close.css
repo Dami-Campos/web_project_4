@@ -1,0 +1,8 @@
+.popupprofile__close {
+  height: 50px;
+  max-width: 490px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 146px;
+}

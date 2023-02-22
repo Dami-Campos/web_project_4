@@ -1,0 +1,9 @@
+.element {
+  width: 282px;
+  height: 361px;
+  margin: 0 auto;
+  display:grid;
+  grid-gap: 0;
+  margin-bottom: 20px;
+  position: relative;
+}

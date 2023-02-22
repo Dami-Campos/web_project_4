@@ -1,0 +1,10 @@
+.popup__close-button {
+  height: 40px;
+  max-width: 40px;
+  background: none;
+  border: none;
+  }
+
+.popup__close-button:hover {
+  opacity: 0.5;
+}
