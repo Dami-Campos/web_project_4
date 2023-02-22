@@ -4,7 +4,7 @@
   "description": "* Figma\r * Imágenes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Dami-Campos/web_project_4#readme",
   "dependencies": {
     "jquery": "^3.6.3"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.0.1"
   }
 }
