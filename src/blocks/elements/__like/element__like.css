@@ -6,8 +6,7 @@
   background: none;
   background-repeat: no-repeat;
   color: inherit;
-  background-image: url"<%=require('./images/main__vector.png')%>";
-  
+  background-image: url('../../../images/vector_like.png');
 }
     
   .element__like:hover {

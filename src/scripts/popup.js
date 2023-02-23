@@ -4,10 +4,13 @@ export default class Popup {
     constructor(popupSelector) {
       this._popupElement = document.querySelector(popupSelector);
       this._handleEscClose = this._handleEscClose.bind(this);
+      this._setEventListeners();
     }
   
     open() {
-      this._popupElement.style.display = "block"
+      
+      this._popupElement.style.display = "block";
+      console.log('abrie',   this._popupElement);
       document.addEventListener('keydown', this._handleEscClose);
   }
   
@@ -24,9 +27,17 @@ export default class Popup {
     }
     
     _setEventListeners() {
-      this._element.addEventListener("click", () => {
-        this.close();
+      this._popupElement.addEventListener('click', (evt) => {
+        if (
+          evt.target.classList.contains('popup') ||
+          evt.target.classList.contains('popup__close-image')
+        ) {
+          this.close();
+        } 
       });
-      
+    }  
+
     }
-    }
+   
+
+ 

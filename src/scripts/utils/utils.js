@@ -1,7 +1,5 @@
-/*import Card from "../scripts/cards.js"
-import { newPopupInfo, initialSection } from "../index.js";
-import previewPopup from "./popupWithImage.js"*/
-
+import {newPopupInfo, initialSection} from "../../index.js"
+import Card from "../../scripts/cards"
 
 export const initialCards = [
   {
@@ -41,9 +39,37 @@ export const selectors = {
   errorClass: "form__input-error_active",
 };
 
-export const formsElements = document.querySelectorAll('.form');
-
-//export const cardsContainer = document.querySelector(".elements")
-//export const popupImage = document.querySelector("#popupImage"); 
-
+export const formsElements = document.querySelectorAll('.popupprofile__form');
 export const popupCloseButton = document.querySelector(".popup__close-button");
+
+
+export function handleProfileSubmit() {
+  const nameInput = document.querySelector(".popupprofile__name") 
+  const jobInput = document.querySelector(".popupprofile__job") 
+  document.querySelector('.profile__name').textContent = nameInput.value; 
+  document.querySelector(".profile__explorador").textContent = jobInput.value; 
+  newPopupInfo.close();
+}
+
+
+
+
+export function handleImageSubmit(evt) {
+  const addFormCard = document.querySelector(".popupimage__form");
+  const title = addFormCard.querySelector(".popupimage__name").value;
+  const link = addFormCard.querySelector(".popupimage__job").value;
+  const data = {title, link};
+  const newCard = new Card(
+    {
+      data,
+      handleCardClick: ({title, link}) => {
+        previewPopup.open({title, link});
+      },
+    },
+    "#template"
+  );
+
+  const card = newCard.generateCard();
+  initialSection.setItem(card);
+}
+

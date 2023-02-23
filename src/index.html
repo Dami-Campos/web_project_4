@@ -8,7 +8,7 @@
   </head>
   <body class="page">
     <section id="popupProfile" class="popupprofile popupprofile-form popup">
-      <div class="popupprofile__close"><button  class="popupprofile__closebutton popup__close-button" type="button" id="closeProfile"><img src="<%=require('./images/close_icon.png')%>" alt="Cerrar página"></button></div>
+      <div class="popupprofile__close"><button  class="popupprofile__closebutton popup__close-button" type="button" id="closeProfile"><img class="popup__close-image" src="<%=require('./images/close_icon.png')%>" alt="Cerrar página"></button></div>
       <div class="popupprofile__container">
         <h3 class="popupprofile__header">Editar perfil</h3>
         <form class="popupprofile__form form" name="register">
@@ -21,7 +21,7 @@
       </div>
     </section>
     <section id="popupImage" class="popupimage popupimage-form popup">
-      <div class="popupimage__close"><button class="popupimage__closebutton popup__close-button" type="button" id="closeImage"><img src="<%=require('./images/close_icon.png')%>" alt="Cerrar página"></button></div>
+      <div class="popupimage__close"><button class="popupimage__closebutton popup__close-button" type="button" id="closeImage"><img class="popup__close-image" src="<%=require('./images/close_icon.png')%>" alt="Cerrar página"></button></div>
       <div class="popupimage__container">
         <h3 class="popupimage__header">Editar perfil</h3> 
         <form  class="popupimage__form form" name="register_image">
@@ -34,8 +34,8 @@
       </div>
     </section>
     <section id="imageOpen" class="popup popup__image"> 
-      <div class="popup__close"><button class="popup__close-button" type="button" id="close"><img src="<%=require('./images/close_icon.png')%>" alt="Cerrar página"></button></div>
-      <div class="popup__container">
+      <div class="popup__close"><button class="popup__close-button" type="button" id="close"><img class="popup__close-image" src="<%=require('./images/close_icon.png')%>" alt="Cerrar página"></button></div>
+      <div class="popup__container popup">
         <img class="popup__size-image">     
         <h3 class="popup__footer"></h3>
       </div>
