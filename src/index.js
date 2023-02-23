@@ -1,13 +1,12 @@
 import "./pages/index.css"
-import Card from "./scripts/cards.js"
-import Popup from "./scripts/popup.js"
-import PopupWithForm from "./scripts/popupWithForm.js";
-import FormValidator from "./scripts/validate.js";
-import PopupWithImage from "./scripts/popupWithImage.js"
-import Section from "./scripts/section.js"
-import UserInfo from "./scripts/userInfo.js"
-import { initialCards, selectors, formsElements, handleImageSubmit, handleProfileSubmit } from "./scripts/utils/utils.js";
-
+import Card from "./component/Card.js"
+import Popup from "./component/Popup.js"
+import PopupWithForm from "./component/PopupWithForm.js";
+import FormValidator from "./component/FormValidator";
+import PopupWithImage from "./component/PopupWithImage.js"
+import Section from "./component/Section.js"
+import UserInfo from "./component/UserInfo.js"
+import { initialCards, selectors, formsElements, handleImageSubmit, handleProfileSubmit } from "./component/utils/Utils.js";
 
 formsElements.forEach((form) => {
     const formValidator = new FormValidator(form, selectors);
@@ -17,9 +16,6 @@ formsElements.forEach((form) => {
   export const newPopupInfo = new PopupWithForm("#popupProfile", handleProfileSubmit); 
   export const newPopupImage = new PopupWithForm("#popupImage", handleImageSubmit);
   const previewPopup = new PopupWithImage("#imageOpen");
-
-
- 
 
 export const initialSection = new Section(
   {
@@ -41,9 +37,6 @@ export const initialSection = new Section(
   ".elements"
 );
 initialSection.renderItems();
-
-
-
 
 const newUserInfo = new UserInfo({
   uName: ".profile__name",

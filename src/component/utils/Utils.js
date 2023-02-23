@@ -1,5 +1,5 @@
-import {newPopupInfo, initialSection} from "../../index.js"
-import Card from "../../scripts/cards"
+import {newPopupInfo, initialSection, previewPopup} from "../../index.js"
+import Card from "../../component/cards"
 
 export const initialCards = [
   {
