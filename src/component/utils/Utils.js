@@ -3,27 +3,27 @@ import Card from "../../component/Card.js"
 
 export const initialCards = [
   {
-    name: "Valle de Yosemite",
+    title: "Valle de Yosemite",
     link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
   },
   {
-    name: "Lago Louise",
+    title: "Lago Louise",
     link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
   },
   {
-    name: "Montañas Calvas",
+    title: "Montañas Calvas",
     link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
   },
   {
-    name: "Latemar",
+    title: "Latemar",
     link: "https://code.s3.yandex.net/web-code/latemar.jpg"
   },
   {
-    name: "Parque Nacional de la Vanoise",
+    title: "Parque Nacional de la Vanoise",
     link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
   },
   {
-    name: "Lago di Braies",
+    title: "Lago di Braies",
     link: "https://code.s3.yandex.net/web-code/lago.jpg"
   }
 ];
