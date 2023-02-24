@@ -1,5 +1,5 @@
 import {newPopupInfo, initialSection, previewPopup} from "../../index.js"
-import Card from "../../component/cards"
+import Card from "../../component/Card.js"
 
 export const initialCards = [
   {
@@ -51,9 +51,6 @@ export function handleProfileSubmit() {
   newPopupInfo.close();
 }
 
-
-
-
 export function handleImageSubmit(evt) {
   const addFormCard = document.querySelector(".popupimage__form");
   const title = addFormCard.querySelector(".popupimage__name").value;
@@ -62,8 +59,8 @@ export function handleImageSubmit(evt) {
   const newCard = new Card(
     {
       data,
-      handleCardClick: ({title, link}) => {
-        previewPopup.open({title, link});
+      handleCardClick: (title, link) => {
+        previewPopup.open(title, link);
       },
     },
     "#template"

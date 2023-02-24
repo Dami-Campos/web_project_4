@@ -2,8 +2,8 @@ import "./pages/index.css"
 import Card from "./component/Card.js"
 import Popup from "./component/Popup.js"
 import PopupWithForm from "./component/PopupWithForm.js";
-import FormValidator from "./component/FormValidator";
-import PopupWithImage from "./component/PopupWithImage.js"
+import FormValidator from "./component/FormValidator.js";
+import PopupWithImage from "./component/PopupWithImage.js";
 import Section from "./component/Section.js"
 import UserInfo from "./component/UserInfo.js"
 import { initialCards, selectors, formsElements, handleImageSubmit, handleProfileSubmit } from "./component/utils/Utils.js";
@@ -15,7 +15,7 @@ formsElements.forEach((form) => {
 
   export const newPopupInfo = new PopupWithForm("#popupProfile", handleProfileSubmit); 
   export const newPopupImage = new PopupWithForm("#popupImage", handleImageSubmit);
-  const previewPopup = new PopupWithImage("#imageOpen");
+  export const previewPopup = new PopupWithImage("#imageOpen");
 
 export const initialSection = new Section(
   {
@@ -56,7 +56,3 @@ formProfile.addEventListener('click', (evt) => {
   evt.preventDefault();
   newPopupInfo.open();
 });
-
-
-
-
