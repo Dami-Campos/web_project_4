@@ -7,11 +7,14 @@ import PopupWithImage from "./component/PopupWithImage.js";
 import Section from "./component/Section.js"
 import UserInfo from "./component/UserInfo.js"
 import Api from "./component/Api.js"
-import { initialCards, selectors, formsElements, handleImageSubmit, handleProfileSubmit } from "./component/utils/Utils.js";
+import { selectors, formsElements, handleImageSubmit, handleProfileSubmit } from "./component/utils/Utils.js";
 
 const api = new Api({
-  token: "8497370c-558e-4854-8c70-728ddddc967f",
-  url: "https://around.nomoreparties.com/v1/web_es_cohort_o4"
+  url: "https://around.nomoreparties.com/v1/web_es_cohort_o4",
+  headers: {
+    autorization: "8497370c-558e-4854-8c70-728ddddc967f",
+    'Content-Type': 'application/json',
+  },
 })
 
 api.getCards().then(cardsResult => {
@@ -42,8 +45,8 @@ formsElements.forEach((form) => {
       const newCard = new Card(
         {
           data,
-          handleCardClick: (title, image) => {
-            previewPopup.open(title, image);
+          handleCardClick: (name, link) => {
+            previewPopup.open(name, link);
           },
           callbacks: {
             deleteHandler() {

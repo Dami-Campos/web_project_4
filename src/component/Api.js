@@ -4,9 +4,7 @@
     }
 
     getHeaders(){
-        const myHeaders = new Headers();     
-        myHeaders.append("Authorization", this._options.token, );
-        return myHeaders;
+        this._headers;
     }
 
     getCards(){  

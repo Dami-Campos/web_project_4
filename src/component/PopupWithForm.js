@@ -1,33 +1,43 @@
-import Popup from "./Popup.js";
+import Popup from './Popup.js';
 
 export default class PopupWithForm extends Popup {
-  constructor(popupSelector, submitCallback) {
+  constructor({popupSelector, handleFormSubmit, submitButton}) {
     super(popupSelector);
-    this._submitCallback = submitCallback.bind(this);
+    this._handleFormSubmit = handleFormSubmit;
+    this._inputList = this._popupElement.querySelectorAll(".form__input");
+    this._formElement = this._popupElement.querySelector(".popupprofile__form");
+    this._submitButton = submitButton;
   }
 
   close() {
     super.close();
-  }
-
-  _setEventListeners() {
-    super._setEventListeners();
-    this._formElement = this._popupElement.querySelector(".form");
-    this._formElement.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-      this._submitCallback(this._getInputValues());
-      evt.target.reset();
-      this.close();
-    });
+    this.renderLoading(false);
+    this._formElement.reset();
   }
 
   _getInputValues() {
-    this._inputElements = this._popupElement.querySelectorAll(".form__submit");
     this._formValues = {};
-    this._inputElements.forEach((input) => {
+    this._inputList.forEach((input) => {
       this._formValues[input.name] = input.value;
     });
     return this._formValues;
+  }
+
+  renderLoading(isLoading) {
+    if (isLoading) {
+      this._submitButton.textContent = 'Guardando...';
+    } else {
+      this._submitButton.textContent = this._submitButton.dataset.textcontent;
+    }
+  }
+
+  setEventListeners() {
+    super.setEventListeners();
+    this._formElement.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      this.renderLoading(true);
+      this._handleFormSubmit(this._getInputValues());
+    });
   }
 }
 
