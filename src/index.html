@@ -61,14 +61,11 @@
         <img class="profile__vector" src="<%=require('./images/main__vector.png')%>" alt="diminuta cruz">
       </div>
     </section>
-    <section class="popup popup_confirmation">
-      <div class="popup__container">
-        <div class="popup__close"><button class="popup__close-button" type="button" id="close"><img class="popup__close-image" src="<%=require('./images/close_icon.png')%>" alt="Cerrar página"></button></div>
-        <h3 class="popup__title">¿Estás seguro/a?</h3>
-        <form class="popup__form form" action="#" name="confirmation" id="form_confirmation" novalidate>
-          <button type="submit">Sí</button>
-        </form>
-      </div>
+    <section class="popup popup__delete">
+      <div class="popupimage__close"><button class="popupimage__closebutton popup__close-button" type="button" id="closeImage"><img class="popup__close-image" src="<%=require('./images/close_icon.png')%>" alt="Cerrar página"></button></div>
+      <div class="popupimage__container">
+        <h3 class="popupimage__header">¿Estás seguro/a?</h3> 
+        <button  class="popupimage__save form__submit" type="submit">Sí</button>
     </section>
     <section>
       <ul class="elements"></ul>

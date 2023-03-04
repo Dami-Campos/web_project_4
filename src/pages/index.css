@@ -8,4 +8,6 @@
 @import url(../blocks/popup/popupimage/popupimage__css.css);
 @import url(../blocks/profile/profile__css.css);
 @import url(../blocks/form/form__css.css);
+@import url(../blocks/popup/popup__picture/popup__picture.css);
+@import url(../blocks/popup/popup__delete/popup__delete.css);
 @import url(../blocks/footer/footer__css.css);

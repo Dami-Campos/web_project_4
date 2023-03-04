@@ -1,0 +1,117 @@
+.popup {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: none;
+    z-index: 6;
+  }
+
+  .popup__picture-container{
+    max-width: 430px;
+    height: 272px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.popup__picture-header{
+    width: 330px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+}
+
+.popup__picture-save{
+    width: 358px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    position: relative;
+    margin-bottom: 28px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    z-index: 15;
+}
+
+.popup__picture-save:hover{
+    opacity: 0.8;
+}
+.popup__close {
+    height: 40px;
+    max-width: 505px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 146px;
+  }
+
+  .popup__close-button {
+    height: 40px;
+    max-width: 40px;
+    background: none;
+    border: none;
+    }
+  
+  .popup__close-button:hover {
+    opacity: 0.5;
+  }
+
+  .popup__picture-form { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    grid-gap: 45px;
+  }
+
+      
+  .form__error {
+    height: 16px;
+    margin-top: -45px;
+    margin-left: 0;
+    text-align: left;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FF0000;
+    visibility: hidden;
+  }
+  .popup__picture-link {
+    width: 358px;
+    border-style: none none solid;
+    position: relative;
+    z-index: 5;
+  }
+  
+  .popup__picture-link:invalid {
+    border-bottom: 1px solid red;
+  }
+      
+  /*<section class="popup popup__picture">
+  <div class="popup__close"><button class="popup__closebutton popup__close-button" type="button" id="closeImage"><img class="popup__close-image" src="./close_icon.png" alt="Cerrar página"></button></div>
+  <div class="popup__picture-container">
+    <h3 class="popup__picture-header">Cambiar foto de perfil</h3> 
+    <form  class="popup__picture-form form" name="register_image">
+      <input  id="form-link" class="popup__picture-link form__input" type="url" name="link" placeholder="Enlace de la imagen">
+      <span class="form__error form-link-error"></span> 
+    <button  class="popup__picture-save form__submit" type="submit">Guardar</button>
+    </form>
+</section>  */
