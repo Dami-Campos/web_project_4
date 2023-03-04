@@ -71,10 +71,3 @@
   .popup__close-button:hover {
     opacity: 0.5;
   }
-  /* 
-   <section class="popup popup__delete">
-        <div class="popup__close"><button class="popup__closebutton popup__close-button" type="button" id="closeImage"><img class="popup__close-image" src="./close_icon.png" alt="Cerrar página"></button></div>
-        <div class="popup__delete-container">
-          <h3 class="popup__delete-header">¿Estás seguro/a?</h3> 
-          <button  class="popup__delete-save form__submit" type="submit">Sí</button>
-      </section>  */
