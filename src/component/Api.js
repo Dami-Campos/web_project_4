@@ -33,7 +33,7 @@
     deleteCard(cardId){
         const requestOptions = {
           method: 'DELETE',
-          headers: this.getHeaders,
+          headers: this.getHeaders(),
           refirect: "follow",
         };
         
@@ -45,7 +45,7 @@
     updateUser(name, about){
         const requestOptions = {
           method: 'PATCH',
-         headers: this.getHeaders,
+         headers: this.getHeaders(),
           body: JSON.stringify({
             name: name,
             about: about,
@@ -60,7 +60,7 @@
     addCard(title, link){
          const requestOptions = {
           method: 'POST',
-          headers:this.getHeaders,
+          headers: this.getHeaders(),
           refirect: "follow",
           body: JSON.stringify({
             title: title,
@@ -76,7 +76,7 @@
     updateAvatar(avatar){
       const requestOptions = {
         method: 'PATCH',
-        headers:this.getHeaders,
+        headers: this.getHeaders(),
         refirect: "follow",
       };
       
@@ -88,7 +88,7 @@
     likeHandler(cardId){
       const requestOptions = {
         method: 'PUT',
-        headers:this.getHeaders,
+        headers:this.getHeaders(),
         refirect: "follow",
       };
       
@@ -100,7 +100,7 @@
     deleteLikeHandler(cardId){
       const requestOptions = {
         method: 'DELETE',
-        headers:this.getHeaders,
+        headers: this.getHeaders(),
         refirect: "follow",
       };
       

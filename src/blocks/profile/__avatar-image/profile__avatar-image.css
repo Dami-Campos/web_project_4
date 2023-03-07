@@ -3,4 +3,9 @@
   height: 130px;
   border-radius: 65px;
   margin-right: 0;
+  background-image: url("../../../images/Jaques_Cousteau.jpg");
+}
+
+.profile__avatar-image:hover {
+  background-image: url("../../../images/vector_profile.png");
 }
