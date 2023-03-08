@@ -4,7 +4,7 @@
     }
 
     getHeaders(){
-        this._headers;
+      return this._options.headers;
     }
 
     getCards(){  

@@ -9,17 +9,19 @@ import UserInfo from "./component/UserInfo.js"
 import Api from "./component/Api.js"
 import { selectors, formsElements, handleImageSubmit, handleProfileSubmit } from "./component/utils/Utils.js";
 
+let userObject = {};
+
 const api = new Api({
-  url: "https://around.nomoreparties.com/v1/web_es_cohort_o4",
+  url: "https://around.nomoreparties.co/v1/web_es_cohort_04",
   headers: {
-    autorization: "8497370c-558e-4854-8c70-728ddddc967f",
+    Authorization: "8497370c-558e-4854-8c70-728ddddc967f",
     'Content-Type': 'application/json',
   },
 })
 
 api.getCards().then(cardsResult => {
-  initialSection.setItem(cardsResult);
-  initialSection.renderer();
+  initialSection.setItems(cardsResult);
+  initialSection.renderItems();
 })
 
 formsElements.forEach((form) => {
@@ -27,16 +29,16 @@ formsElements.forEach((form) => {
     formValidator.enableValidation();
   });
 
-  export const newPopupInfo = new PopupWithForm("#popupProfile", handleProfileSubmit); 
-  export const newPopupImage = new PopupWithForm("#popupImage", handleImageSubmit);
+  export const newPopupInfo = new PopupWithForm("#popupProfile", handleProfileSubmit, ".popupprofile__save"); 
+  export const newPopupImage = new PopupWithForm("#popupImage", handleImageSubmit, ".popupimage__save");
   export const previewPopup = new PopupWithImage("#imageOpen");
 
   let cards = [];
   
-  api.getCards().then(cardsResult => {
+  /*api.getCards().then(cardsResult => {
     cards = cardsResult;
     initialSection.renderItems();
-  })
+  })*/
 
  const initialSection = new Section(
   {
@@ -60,6 +62,7 @@ formsElements.forEach((form) => {
             }
           }
         },
+        //aquí va el user userObject
         "#template"
       );
       const cardElement = newCard.generateCard();

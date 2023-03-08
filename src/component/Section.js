@@ -16,11 +16,11 @@ export default class Section {
   }
 
   setItems(items){
-    this._items = items; 
+    this._renderItems = items; 
   }
 
   prepend(item){
-  this._items = [item, ...this._items];
+  this._renderItems = [item, ...this._renderItems];
   this.renderItems();
   }
 }
