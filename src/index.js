@@ -7,7 +7,7 @@ import PopupWithImage from "./component/PopupWithImage.js";
 import Section from "./component/Section.js"
 import UserInfo from "./component/UserInfo.js"
 import Api from "./component/Api.js"
-import { selectors, formsElements, handleImageSubmit, handleProfileSubmit } from "./component/utils/Utils.js";
+import { selectors, formsElements, handleImageSubmit, handleProfileSubmit, handlePictureSubmit } from "./component/utils/Utils.js";
 
 let userObject = {};
 
@@ -31,6 +31,7 @@ formsElements.forEach((form) => {
 
   export const newPopupInfo = new PopupWithForm("#popupProfile", handleProfileSubmit, ".popupprofile__save"); 
   export const newPopupImage = new PopupWithForm("#popupImage", handleImageSubmit, ".popupimage__save");
+  export const newPopupPicture = new PopupWithForm(".popup__picture", handlePictureSubmit, ".popup__picture-save")
   export const previewPopup = new PopupWithImage("#imageOpen");
 
   let cards = [];

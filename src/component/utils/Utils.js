@@ -60,3 +60,12 @@ export function handleImageSubmit(evt) {
   })
 }
 
+export function handlePictureSubmit() {
+  const addAvatar = document.querySelector(".popup__picture-form");
+  const avatar = addAvatar.querySelector(".popup__picture-link");
+  api.updateAvatar(avatar).then(newAvatar => {
+    
+  })
+
+}
+

@@ -1,0 +1,9 @@
+.profile__background{
+    display: block;
+}
+
+.profile__background:hover {
+    background-image: url("../../../images/vector_profile.png");
+    background-repeat: no-repeat;
+    opacity: 0.5;
+}
