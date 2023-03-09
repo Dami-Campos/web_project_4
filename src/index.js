@@ -52,7 +52,7 @@ formsElements.forEach((form) => {
             previewPopup.open(name, link);
           },
           callbacks: {
-            deleteHandler() {
+            deleteCard() {
               return api.deleteCard(data._id);
             },
             likeHandler() {
@@ -76,9 +76,16 @@ formsElements.forEach((form) => {
 const newUserInfo = new UserInfo({
   uName: ".profile__name",
   uJob: ".profile__explorador",
+  uAvatar: ".profile__avatar-image"
 });
 
-newUserInfo.getUserInfo(); 
+api.getUserInfo().then((res) => {
+  newUserInfo.setUserInfo({uName: res.name, uJob: res.about});
+  newUserInfo.setUserAvatar(res.avatar);
+  newUserInfo.userId = res._id;
+  });
+
+//newUserInfo.getUserInfo(); 
 
 const formImage = document.querySelector("#openImage");
 formImage.addEventListener('click', (evt) => {
@@ -91,3 +98,9 @@ formProfile.addEventListener('click', (evt) => {
   evt.preventDefault();
   newPopupInfo.open();
 });
+
+const formPicture = document.querySelector("#openFormPicture");
+formPicture.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  newPopupPicture.open();
+})

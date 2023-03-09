@@ -18,7 +18,7 @@
           .catch(error => console.log('error', error));
     }
     
-    getUser(){
+    getUserInfo(){
         const requestOptions = {
           method: 'GET',
           headers: this.getHeaders(),

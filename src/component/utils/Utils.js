@@ -41,14 +41,19 @@ export const selectors = {
 
 export const formsElements = document.querySelectorAll('.popupprofile__form');
 export const popupCloseButton = document.querySelector(".popup__close-button");
+const avatarImage = document.querySelector(".profile__avatar-image");
+const popupPicture = document.querySelector(".popup__picture");
 
 
 export function handleProfileSubmit() {
-  const nameInput = document.querySelector(".popupprofile__name") 
-  const jobInput = document.querySelector(".popupprofile__job") 
-  document.querySelector('.profile__name').textContent = nameInput.value; 
-  document.querySelector(".profile__explorador").textContent = jobInput.value; 
-  newPopupInfo.close();
+  const addInfo = document.querySelector(".popupprofile-form");
+  const name = document.querySelector(".popupprofile__name"); 
+  const about = document.querySelector(".popupprofile__job") ;
+  api.updateUser(name, about).then( info => {
+    document.querySelector('.profile__name').textContent = name.value; 
+    document.querySelector(".profile__explorador").textContent = about.value; 
+    newPopupInfo.close();
+  })
 }
 
 export function handleImageSubmit(evt) {
@@ -64,7 +69,8 @@ export function handlePictureSubmit() {
   const addAvatar = document.querySelector(".popup__picture-form");
   const avatar = addAvatar.querySelector(".popup__picture-link");
   api.updateAvatar(avatar).then(newAvatar => {
-    
+    avatarImage.src = newAvatar.src;
+    popupPicture.close();
   })
 
 }
