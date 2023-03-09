@@ -9,7 +9,12 @@ import UserInfo from "./component/UserInfo.js"
 import Api from "./component/Api.js"
 import { selectors, formsElements, handleImageSubmit, handleProfileSubmit, handlePictureSubmit } from "./component/utils/Utils.js";
 
-let userObject = {};
+let newUserInfo = new UserInfo({
+  uName: ".profile__name",
+  uJob: ".profile__explorador",
+  uAvatar: ".profile__avatar-image"
+});
+
 
 const api = new Api({
   url: "https://around.nomoreparties.co/v1/web_es_cohort_04",
@@ -63,7 +68,7 @@ formsElements.forEach((form) => {
             }
           }
         },
-        //aquí va el user userObject
+        newUserInfo,//aquí va el user userObject
         "#template"
       );
       const cardElement = newCard.generateCard();
@@ -73,17 +78,13 @@ formsElements.forEach((form) => {
   ".elements"
 );
 
-const newUserInfo = new UserInfo({
-  uName: ".profile__name",
-  uJob: ".profile__explorador",
-  uAvatar: ".profile__avatar-image"
-});
 
 api.getUserInfo().then((res) => {
   newUserInfo.setUserInfo({uName: res.name, uJob: res.about});
-  newUserInfo.setUserAvatar(res.avatar);
+  newUserInfo.setUserAvatar({uAvatar: res.avatar});
   newUserInfo.userId = res._id;
   });
+
 
 //newUserInfo.getUserInfo(); 
 
