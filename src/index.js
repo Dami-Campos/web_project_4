@@ -15,6 +15,12 @@ let newUserInfo = new UserInfo({
   uAvatar: ".profile__avatar-image"
 });
 
+api.getUserInfo().then((res) => {
+  newUserInfo.setUserInfo({uName: res.name, uJob: res.about});
+  newUserInfo.setUserAvatar(res.avatar);
+  newUserInfo.userId = res._id;
+  });
+
 
 const api = new Api({
   url: "https://around.nomoreparties.co/v1/web_es_cohort_04",
@@ -34,17 +40,22 @@ formsElements.forEach((form) => {
     formValidator.enableValidation();
   });
 
-  export const newPopupInfo = new PopupWithForm("#popupProfile", handleProfileSubmit, ".popupprofile__save"); 
+  //export const newPopupInfo = new PopupWithForm("#popupProfile", handleProfileSubmit, ".popupprofile__save"); 
   export const newPopupImage = new PopupWithForm("#popupImage", handleImageSubmit, ".popupimage__save");
   export const newPopupPicture = new PopupWithForm(".popup__picture", handlePictureSubmit, ".popup__picture-save")
   export const previewPopup = new PopupWithImage("#imageOpen");
 
-  let cards = [];
+  const newPopupInfo = new PopupWithForm({
+    popupSelector: "#popupProfile",
+    handleProfileSubmit: (data) => {
+      api.updateUser({name: data.name, about: data.about}).then((res) => {
+          newUserInfo.setUserInfo({uName: res.name, uJob: res.about});
   
-  /*api.getCards().then(cardsResult => {
-    cards = cardsResult;
-    initialSection.renderItems();
-  })*/
+          newPopupInfo.close();
+        }).catch((err) => console.log(err));
+    },
+    submitButton: ".popupprofile__save",
+  });
 
  const initialSection = new Section(
   {
@@ -78,15 +89,6 @@ formsElements.forEach((form) => {
   ".elements"
 );
 
-
-api.getUserInfo().then((res) => {
-  newUserInfo.setUserInfo({uName: res.name, uJob: res.about});
-  newUserInfo.setUserAvatar(res.avatar);
-  newUserInfo.userId = res._id;
-  });
-
-
-//newUserInfo.getUserInfo(); 
 
 const formImage = document.querySelector("#openImage");
 formImage.addEventListener('click', (evt) => {
