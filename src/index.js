@@ -81,7 +81,7 @@ formsElements.forEach((form) => {
 
 api.getUserInfo().then((res) => {
   newUserInfo.setUserInfo({uName: res.name, uJob: res.about});
-  newUserInfo.setUserAvatar({uAvatar: res.avatar});
+  newUserInfo.setUserAvatar(res.avatar);
   newUserInfo.userId = res._id;
   });
 

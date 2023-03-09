@@ -56,7 +56,7 @@ export function handleProfileSubmit() {
   })
 }
 
-export function handleImageSubmit(evt) {
+export function handleImageSubmit() {
   const addFormCard = document.querySelector(".popupimage__form");
   const title = addFormCard.querySelector(".popupimage__name").value;
   const link = addFormCard.querySelector(".popupimage__job").value;
