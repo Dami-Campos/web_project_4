@@ -45,7 +45,7 @@ const avatarImage = document.querySelector(".profile__avatar-image");
 const popupPicture = document.querySelector(".popup__picture");
 
 
-/*export function handleProfileSubmit() {
+export function handleProfileSubmit() {
   const addInfo = document.querySelector(".popupprofile-form");
   const name = document.querySelector(".popupprofile__name"); 
   const about = document.querySelector(".popupprofile__job") ;
@@ -73,5 +73,5 @@ export function handlePictureSubmit() {
     popupPicture.close();
   })
 
-}*/
+}
 
