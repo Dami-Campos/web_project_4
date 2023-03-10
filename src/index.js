@@ -100,7 +100,7 @@ formProfile.addEventListener('click', (evt) => {
       })
       .catch((err) => console.log(err));
   },
-  submitButton: a".popupimage__save",
+  submitButton: ".popupimage__save",
 });*/
 
 const formImage = document.querySelector("#openImage");
@@ -113,8 +113,8 @@ formImage.addEventListener('click', (evt) => {
   popupSelector: ".popup__picture",
   handleFormSubmit: (data) => {
     const avatar = data.link;
-    api.setUserAvatar(avatar).then(() => {
-        newUserInfo.setUserAvatar(avatar);
+    api.updateAvatar(avatar).then(() => {
+        newUserInfo.updateAvatar(avatar);
         newPopupPicture.close();
       })
       .catch((err) => console.log(err));
