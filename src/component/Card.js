@@ -61,7 +61,7 @@ export default class Card {
 
     if(this._isOwner()){
       this._element
-      .querySelector(".element__trash")
+      .querySelector(".popup__picture-save")
       .addEventListener("click", () => {
         this._callbacks._deleteCard().then(() => {
           this._handleDelete();
