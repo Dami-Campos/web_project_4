@@ -39,22 +39,6 @@ formsElements.forEach((form) => {
   export const newPopupPicture = new PopupWithForm(".popup__picture", handlePictureSubmit, ".popup__picture-save")
   export const previewPopup = new PopupWithImage("#imageOpen");
 
-  /*export const newPopupInfo = new PopupWithForm({
-    popupSelector: "#popupProfile",
-    handleProfileSubmit: (data) => {
-      api.updateUser({name: data.name, about: data.about}).then((res) => {
-          newUserInfo.setUserInfo({uName: res.name, uJob: res.about});
-          newPopupInfo.close();
-        }).catch((err) => console.log(err));
-    },
-    submitButton: ".popupprofile__save",
-  });*/
-
-  const formProfile = document.querySelector("#openProfile");
-formProfile.addEventListener('click', (evt) => {
-  evt.preventDefault();
-  newPopupInfo.open();
-});
 
 
  const initialSection = new Section(
@@ -88,6 +72,24 @@ formProfile.addEventListener('click', (evt) => {
   },
   ".elements"
 );
+
+  /*export const newPopupInfo = new PopupWithForm({
+    popupSelector: "#popupProfile",
+    handleProfileSubmit: (data) => {
+      api.updateUser({name: data.name, about: data.about}).then((res) => {
+          newUserInfo.setUserInfo({uName: res.name, uJob: res.about});
+          newPopupInfo.close();
+        }).catch((err) => console.log(err));
+    },
+    submitButton: ".popupprofile__save",
+  });*/
+
+  const formProfile = document.querySelector("#openProfile");
+formProfile.addEventListener('click', (evt) => {
+  evt.preventDefault();
+  newPopupInfo.open();
+});
+
 
 /*const newPopupImage = new PopupWithForm({
   popupSelector: "#popupImage",
