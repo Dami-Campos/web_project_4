@@ -96,7 +96,7 @@ formProfile.addEventListener('click', (evt) => {
       .then((newCard) => {
         const cardElement = generateCard(newCard);
         initialSection.setItem(cardElement);
-        addCardPopup.close();
+        newPopupImage.close();
       })
       .catch((err) => console.log(err));
   },
@@ -129,7 +129,7 @@ formPicture.addEventListener("click", (evt) => {
   newPopupPicture.open();
 })
 
-const deleteCard = new PopupWithConfirmation({
+/*const deleteCard = new PopupWithConfirmation({
   popupSelector: ".popup__delete",
   submitButton: ".popup__delete-save",
 });
@@ -138,4 +138,4 @@ const formDelete = document.querySelector("#trash");
 formDelete.addEventListener("click", (evt) => {
   evt.preventDefault();
   deleteCard.open;
-})
+})*/
