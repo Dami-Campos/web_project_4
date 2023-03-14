@@ -7,3 +7,10 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.element__count {
+  width: 9px;
+  height: 13px;
+  margin-right: -255px;
+  margin-top: 50px;
+}

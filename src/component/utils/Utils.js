@@ -41,11 +41,11 @@ export const selectors = {
 
 export const formsElements = document.querySelectorAll('.popupprofile__form');
 export const popupCloseButton = document.querySelector(".popup__close-button");
-const avatarImage = document.querySelector(".profile__avatar-image");
-const popupPicture = document.querySelector(".popup__picture");
+export const avatarImage = document.querySelector(".profile__avatar-image");
+export const popupPicture = document.querySelector(".popup__picture");
 
 
-export function handleProfileSubmit() {
+function handleProfileSubmit() {
   const addInfo = document.querySelector(".popupprofile-form");
   const name = document.querySelector(".popupprofile__name"); 
   const about = document.querySelector(".popupprofile__job") ;
@@ -56,22 +56,13 @@ export function handleProfileSubmit() {
   })
 }
 
-export function handleImageSubmit() {
+/*export function handleImageSubmit() {
   const addFormCard = document.querySelector(".popupimage__form");
   const title = addFormCard.querySelector(".popupimage__name").value;
   const link = addFormCard.querySelector(".popupimage__job").value;
   api.addCard(title, link).then(card => {
     initialSection.prepend(card);
   })
-}
+}*/
 
-export function handlePictureSubmit() {
-  const addAvatar = document.querySelector(".popup__picture-form");
-  const avatar = addAvatar.querySelector(".popup__picture-link");
-  api.updateAvatar(avatar).then(newAvatar => {
-    avatarImage.src = newAvatar.src;
-    popupPicture.close();
-  })
-
-}
 

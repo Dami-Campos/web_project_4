@@ -5,8 +5,8 @@
   border: none;
   background: none;
   background-repeat: no-repeat;
-  color: inherit;
   background-image: url('../../../images/vector_like.png');
+  margin-top: -10px;
 }
     
   .element__like:hover {

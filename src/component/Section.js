@@ -23,5 +23,12 @@ export default class Section {
   this._renderItems = [item, ...this._renderItems];
   this.renderItems();
   }
-}
 
+  clear(){
+    this._container.innerHTML = '';
+  }
+
+  prependItem(item) {
+    this._renderItems = [item, ...this._renderItems];
+  }
+}

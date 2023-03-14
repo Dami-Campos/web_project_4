@@ -6,9 +6,7 @@ export default class Popup {
     }
   
     open() {
-      
       this._popupElement.style.display = "block";
-      console.log('abrie',   this._popupElement);
       document.addEventListener('keydown', this._handleEscClose);
   }
   

@@ -42,7 +42,7 @@
           .catch(error => console.log('error', error));
     }
 
-    updateUser(name, about){
+    updateUser({name, about}){
         const requestOptions = {
           method: 'PATCH',
          headers: this.getHeaders(),
