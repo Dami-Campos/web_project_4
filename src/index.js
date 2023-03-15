@@ -4,10 +4,11 @@ import Popup from "./component/Popup.js"
 import PopupWithForm from "./component/PopupWithForm.js";
 import FormValidator from "./component/FormValidator.js";
 import PopupWithImage from "./component/PopupWithImage.js";
+import PopupWithConfirmation from "./component/PopupWithConfirmation";
 import Section from "./component/Section.js"
 import UserInfo from "./component/UserInfo.js"
 import Api from "./component/Api.js"
-import { selectors, formsElements, popupPicture, avatarImage } from "./component/utils/Utils.js";
+import { selectors, formsElements, popupPicture, avatarImage, initialCards } from "./component/utils/Utils.js";
 
 let newUserInfo = new UserInfo({
   uName: ".profile__name",
@@ -36,21 +37,54 @@ formsElements.forEach((form) => {
   });
 
   export const newPopupInfo = new PopupWithForm("#popupProfile", handleProfileSubmit, ".popupprofile__save"); 
-  export const newPopupImage = new PopupWithForm("#popupImage", handleImageSubmit, ".popupimage__save");
+  //export const newPopupImage = new PopupWithForm("#popupImage", handleImageSubmit, ".popupimage__save");
   export const newPopupPicture = new PopupWithForm(".popup__picture", handlePictureSubmit, ".popup__picture-save")
   export const previewPopup = new PopupWithImage("#imageOpen");
 
   api
   .getUserInfo()
   .then((res) => {
-    newUserInfo.updateUser({uName: res.name, uJob: res.about});
+    newUserInfo.updateUser(res.name,  res.about);
     newUserInfo.updateAvatar(res.avatar);
     newUserInfo.userId = res._id;
   })
+  .then(() => {
+   api.getCards().then((res) => {
+    const cardRender = new Section({
+      items: res,
+      renderItems: (data) => {
+        const cardElement = newCard.generateCard(data);
+        initialSection.setItem(cardElement);
+      },
+      },
+      ".elements",
+       );
+       cardRender.renderItems();
 
+       const newPopupImage = new PopupWithForm({
+        popupSelector: "#popupImage",
+        handleFormSubmit: (formData) => {
+          api
+            .addCard({title: formData.title, link: formData.link})
+            .then((newCard) => {
+              const newCardElement = newCard.generateCard(data);
+              cardRender.setItem(newCardElement);
+              newPopupImage.close();
+            })
+            .catch((err) => console.log(err));
+        },
+        submitButton: ".popupimage__save",
+      });
+      formImage.addEventListener('click', () => {
+        newPopupImage.open();
+      });
+    })
+    .catch((err) => console.log(err));
+})
+.catch((err) => console.log(err));
 
-
-  const initialSection = new Section(
+  
+   const initialSection = new Section(
     {
       items: [],
       renderer: (data) => {
@@ -61,7 +95,7 @@ formsElements.forEach((form) => {
               previewPopup.open(name, link);
             },
             callbacks: {
-              deleteCard() {
+              deleteCard()/*porque aqui no hay parametro*/{
                 return api.deleteCard(data._id);
               },
               likeHandler() {
@@ -81,6 +115,7 @@ formsElements.forEach((form) => {
     },
     ".elements"
   );
+
 
 
 
@@ -105,7 +140,7 @@ formPicture.addEventListener("click", (evt) => {
   newPopupPicture.open();
 })
 
-const deleteCard = new PopupWithConfirmation({
+/*const deleteCard = new PopupWithConfirmation({
   popupSelector: ".popup__delete",
   submitButton: ".popup__delete-save",
 });
@@ -114,9 +149,9 @@ const formDelete = document.querySelector("#trash");
 formDelete.addEventListener("click", (evt) => {
   evt.preventDefault();
   deleteCard.open;
-})
+})*/
 
-function handleImageSubmit() {
+/*function handleImageSubmit() {
   const addFormCard = document.querySelector(".popupimage__form");
   const title = addFormCard.querySelector(".popupimage__name").value;
   const link = addFormCard.querySelector(".popupimage__job").value;
@@ -125,7 +160,7 @@ function handleImageSubmit() {
       initialSection.clear();
       initialSection.renderItems();
   })
-}
+}*/
 
  function handlePictureSubmit() {
   const addAvatar = document.querySelector(".popup__picture-form");
