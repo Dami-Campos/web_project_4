@@ -75,8 +75,10 @@ formsElements.forEach((form) => {
         },
         submitButton: ".popupimage__save",
       });
-      formImage.addEventListener('click', () => {
+      formImage.addEventListener('click', (evt) => {
+        console.log("Hola")
         newPopupImage.open();
+        evt.preventDefault();
       });
     })
     .catch((err) => console.log(err));
@@ -127,10 +129,11 @@ formProfile.addEventListener('click', (evt) => {
 
 
 const formImage = document.querySelector("#openImage");
-formImage.addEventListener('click', (evt) => {
+/*formImage.addEventListener('click', (evt) => {
+  console.log(evt);
   evt.preventDefault();
   newPopupImage.open();
-});
+});*/
 
 
 
@@ -181,3 +184,27 @@ function handleProfileSubmit() {
     newPopupInfo.close();
   })
 }
+
+/*const newPopupInfo = new PopupWithForm({
+  popupSelector: "#popupProfile",
+  handleProfileSubmit: (data) => {
+    api.updateUser({name: data.name, about: data.about}).then((res) => {
+        newUserInfo.setUserInfo({uName: res.name, uJob: res.about});
+        newPopupInfo.close();
+      }).catch((err) => console.log(err));
+  },
+  submitButton: ".popupprofile__save",
+});*/
+
+/*const newPopupPicture = new PopupWithForm({
+  popupSelector: ".popup__picture",
+  handleFormSubmit: (data) => {
+    const avatar = data.link;
+    api.updateAvatar(avatar).then(() => {
+        newUserInfo.updateAvatar(avatar);
+        newPopupPicture.close();
+      })
+      .catch((err) => console.log(err));
+  },
+  submitButton: ".popup__picture-save",
+});*/
