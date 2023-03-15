@@ -75,11 +75,6 @@ formsElements.forEach((form) => {
         },
         submitButton: ".popupimage__save",
       });
-      formImage.addEventListener('click', (evt) => {
-        console.log("Hola")
-        newPopupImage.open();
-        evt.preventDefault();
-      });
     })
     .catch((err) => console.log(err));
 })
@@ -129,11 +124,11 @@ formProfile.addEventListener('click', (evt) => {
 
 
 const formImage = document.querySelector("#openImage");
-/*formImage.addEventListener('click', (evt) => {
-  console.log(evt);
+formImage.addEventListener('click', (evt) => {
+  console.log("hola");
   evt.preventDefault();
   newPopupImage.open();
-});*/
+});
 
 
 
