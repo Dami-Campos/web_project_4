@@ -40,44 +40,12 @@ formsElements.forEach((form) => {
   export const newPopupPicture = new PopupWithForm(".popup__picture", handlePictureSubmit, ".popup__picture-save")
   export const previewPopup = new PopupWithImage("#imageOpen");
 
-  api
-  .getUserInfo()
-  .then((res) => {
-    newUserInfo.updateUser(res.name,  res.about);
+  api.getUserInfo().then((res) => {
+    newUserInfo.updateUser({name: res.name,  about: res.about});
     newUserInfo.updateAvatar(res.avatar);
     newUserInfo.userId = res._id;
   })
-  .then(() => {
-   api.getCards().then((res) => {
-    const cardRender = new Section({
-      items: res,
-      renderItems: (data) => {
-        const cardElement = newCard.generateCard(data);
-        initialSection.setItem(cardElement);
-      },
-      },
-      ".elements",
-       );
-       cardRender.renderItems();
-
-       /*const newPopupImage = new PopupWithForm({
-        popupSelector: "#popupImage",
-        handleFormSubmit: (formData) => {
-          api
-            .addCard({title: formData.title, link: formData.link})
-            .then((newCard) => {
-              const newCardElement = newCard.generateCard(data);
-              cardRender.setItem(newCardElement);
-              newPopupImage.close();
-            })
-            .catch((err) => console.log(err));
-        },
-        submitButton: ".popupimage__save",
-      });
-    })
-    .catch((err) => console.log(err));
-})
-.catch((err) => console.log(err));*/
+  
 
   
    const initialSection = new Section(
