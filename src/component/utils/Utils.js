@@ -1,4 +1,4 @@
-import {newPopupInfo} from "../../index.js"
+//import {newPopupInfo} from "../../index.js"
 
 
 export const initialCards = [
@@ -41,8 +41,8 @@ export const selectors = {
 
 export const formsElements = document.querySelectorAll('.popupprofile__form');
 export const popupCloseButton = document.querySelector(".popup__close-button");
-export const avatarImage = document.querySelector(".profile__avatar-image");
-export const popupPicture = document.querySelector(".popup__picture");
+ const avatarImage = document.querySelector(".profile__avatar-image");
+ const popupPicture = document.querySelector(".popup__picture");
 
 
 function handleProfileSubmit() {

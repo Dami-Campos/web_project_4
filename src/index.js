@@ -8,7 +8,7 @@ import PopupWithConfirmation from "./component/PopupWithConfirmation";
 import Section from "./component/Section.js"
 import UserInfo from "./component/UserInfo.js"
 import Api from "./component/Api.js"
-import { selectors, formsElements, popupPicture, avatarImage, } from "./component/utils/Utils.js";
+import { selectors, formsElements, /*popupPicture, avatarImage*/ } from "./component/utils/Utils.js";
 
 let newUserInfo = new UserInfo({
   uName: ".profile__name",
@@ -41,8 +41,8 @@ formsElements.forEach((form) => {
   export const previewPopup = new PopupWithImage("#imageOpen");
 
   api.getUserInfo().then((res) => {
-    newUserInfo.updateUser({name: res.name,  about: res.about});
-    newUserInfo.updateAvatar(res.avatar);
+    //newUserInfo.updateUser({name: res.name,  about: res.about});
+    //newUserInfo.updateAvatar(res.avatar);
     newUserInfo.userId = res._id;
   })
   
