@@ -8,7 +8,7 @@ import PopupWithConfirmation from "./component/PopupWithConfirmation";
 import Section from "./component/Section.js"
 import UserInfo from "./component/UserInfo.js"
 import Api from "./component/Api.js"
-import { selectors, formsElements, popupPicture, avatarImage, initialCards } from "./component/utils/Utils.js";
+import { selectors, formsElements, popupPicture, avatarImage, } from "./component/utils/Utils.js";
 
 let newUserInfo = new UserInfo({
   uName: ".profile__name",
@@ -36,7 +36,7 @@ formsElements.forEach((form) => {
   });
 
   export const newPopupInfo = new PopupWithForm("#popupProfile", handleProfileSubmit, ".popupprofile__save"); 
-  //export const newPopupImage = new PopupWithForm("#popupImage", handleImageSubmit, ".popupimage__save");
+  export const newPopupImage = new PopupWithForm("#popupImage", handleImageSubmit, ".popupimage__save");
   export const newPopupPicture = new PopupWithForm(".popup__picture", handlePictureSubmit, ".popup__picture-save")
   export const previewPopup = new PopupWithImage("#imageOpen");
 
@@ -60,7 +60,7 @@ formsElements.forEach((form) => {
        );
        cardRender.renderItems();
 
-       const newPopupImage = new PopupWithForm({
+       /*const newPopupImage = new PopupWithForm({
         popupSelector: "#popupImage",
         handleFormSubmit: (formData) => {
           api
@@ -77,7 +77,7 @@ formsElements.forEach((form) => {
     })
     .catch((err) => console.log(err));
 })
-.catch((err) => console.log(err));
+.catch((err) => console.log(err));*/
 
   
    const initialSection = new Section(
@@ -91,7 +91,7 @@ formsElements.forEach((form) => {
               previewPopup.open(title, link);
             },
             callbacks: {
-              deleteCard()/*porque aqui no hay parametro*/{
+              deleteHandler(){
                 return api.deleteCard(data._id);
               },
               likeHandler() {
@@ -102,7 +102,7 @@ formsElements.forEach((form) => {
               }
             }
           },
-          newUserInfo,//aquí va el user userObject
+          newUserInfo,
           "#template"
         );
         const cardElement = newCard.generateCard();
@@ -148,7 +148,7 @@ formDelete.addEventListener("click", (evt) => {
   deleteCard.open;
 })*/
 
-/*function handleImageSubmit() {
+function handleImageSubmit() {
   const addFormCard = document.querySelector(".popupimage__form");
   const title = addFormCard.querySelector(".popupimage__name").value;
   const link = addFormCard.querySelector(".popupimage__job").value;
@@ -157,7 +157,7 @@ formDelete.addEventListener("click", (evt) => {
       initialSection.clear();
       initialSection.renderItems();
   })
-}*/
+}
 
  function handlePictureSubmit() {
   const addAvatar = document.querySelector(".popup__picture-form");

@@ -85,7 +85,7 @@
         .catch(error => console.log('error', error));
     }
 
-    likeHandler(cardId){
+    like(cardId){
       const requestOptions = {
         method: 'PUT',
         headers:this.getHeaders(),
@@ -97,7 +97,7 @@
         .catch(error => console.log('error', error));
     }
 
-    deleteLikeHandler(cardId){
+    removeLike  (cardId){
       const requestOptions = {
         method: 'DELETE',
         headers: this.getHeaders(),

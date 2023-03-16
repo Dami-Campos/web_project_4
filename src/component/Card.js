@@ -63,7 +63,7 @@ export default class Card {
       this._element
       .querySelector(".popup__picture-save")
       .addEventListener("click", () => {
-        this._callbacks._deleteCard().then(() => {
+        this._callbacks._deleteHandler().then(() => {
           this._handleDelete();
         })
       })
