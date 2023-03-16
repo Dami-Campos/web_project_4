@@ -81,6 +81,44 @@ formsElements.forEach((form) => {
   );
 
 
+  const newPopupImage = new PopupWithForm({
+    popupSelector: "#popupImage",
+    handleFormSubmit: (data) => {
+      api.addCard({title: data.title, link: data.link}).then((card) => {
+        initialSection.prependItem(card);
+        initialSection.clear();
+        initialSection.renderItems();
+          newPopupImage.close();
+        })
+        .catch((err) => console.log(err));
+    },
+    submitButton: ".popupimage__save",
+  });
+  
+  
+  const newPopupInfo = new PopupWithForm({
+    popupSelector: "#popupProfile",
+    handleProfileSubmit: (data) => {
+      api.updateUser({name: data.name, about: data.about}).then((res) => {
+          newUserInfo.setUserInfo({uName: res.name, uJob: res.about});
+          newPopupInfo.close();
+        }).catch((err) => console.log(err));
+    },
+    submitButton: ".popupprofile__save",
+  });
+  
+  const newPopupPicture = new PopupWithForm({
+    popupSelector: ".popup__picture",
+    handleFormSubmit: (data) => {
+      const avatar = data.link;
+      api.updateAvatar(avatar).then(() => {
+          newUserInfo.updateAvatar(avatar);
+          newPopupPicture.close();
+        })
+        .catch((err) => console.log(err));
+    },
+    submitButton: ".popup__picture-save",
+  });
 
 
 const formProfile = document.querySelector("#openProfile");
@@ -105,7 +143,7 @@ formPicture.addEventListener("click", (evt) => {
   newPopupPicture.open();
 })
 
-/*const deleteCard = new PopupWithConfirmation({
+const deleteCard = new PopupWithConfirmation({
   popupSelector: ".popup__delete",
   submitButton: ".popup__delete-save",
 });
@@ -114,7 +152,7 @@ const formDelete = document.querySelector("#trash");
 formDelete.addEventListener("click", (evt) => {
   evt.preventDefault();
   deleteCard.open;
-})*/
+});
 
 /*function handleImageSubmit() {
   const addFormCard = document.querySelector(".popupimage__form");
@@ -126,42 +164,3 @@ formDelete.addEventListener("click", (evt) => {
       initialSection.renderItems();
   })
 }*/
-
-const newPopupImage = new PopupWithForm({
-  popupSelector: "#popupImage",
-  handleFormSubmit: (data) => {
-    api.addCard({title: data.title, link: data.link}).then((card) => {
-      initialSection.prependItem(card);
-      initialSection.clear();
-      initialSection.renderItems();
-        newPopupImage.close();
-      })
-      .catch((err) => console.log(err));
-  },
-  submitButton: ".popupimage__save",
-});
-
-
-const newPopupInfo = new PopupWithForm({
-  popupSelector: "#popupProfile",
-  handleProfileSubmit: (data) => {
-    api.updateUser({name: data.name, about: data.about}).then((res) => {
-        newUserInfo.setUserInfo({uName: res.name, uJob: res.about});
-        newPopupInfo.close();
-      }).catch((err) => console.log(err));
-  },
-  submitButton: ".popupprofile__save",
-});
-
-const newPopupPicture = new PopupWithForm({
-  popupSelector: ".popup__picture",
-  handleFormSubmit: (data) => {
-    const avatar = data.link;
-    api.updateAvatar(avatar).then(() => {
-        newUserInfo.updateAvatar(avatar);
-        newPopupPicture.close();
-      })
-      .catch((err) => console.log(err));
-  },
-  submitButton: ".popup__picture-save",
-});
