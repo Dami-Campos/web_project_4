@@ -35,9 +35,9 @@ formsElements.forEach((form) => {
     formValidator.enableValidation();
   });
 
-  export const newPopupInfo = new PopupWithForm("#popupProfile", handleProfileSubmit, ".popupprofile__save"); 
-  export const newPopupImage = new PopupWithForm("#popupImage", handleImageSubmit, ".popupimage__save");
-  export const newPopupPicture = new PopupWithForm(".popup__picture", handlePictureSubmit, ".popup__picture-save")
+  //export const newPopupInfo = new PopupWithForm("#popupProfile", handleProfileSubmit, ".popupprofile__save"); 
+  //export const newPopupImage = new PopupWithForm("#popupImage", handleImageSubmit, ".popupimage__save");
+  //export const newPopupPicture = new PopupWithForm(".popup__picture", handlePictureSubmit, ".popup__picture-save")
   export const previewPopup = new PopupWithImage("#imageOpen");
 
   api.getUserInfo().then((res) => {
@@ -116,7 +116,7 @@ formDelete.addEventListener("click", (evt) => {
   deleteCard.open;
 })*/
 
-function handleImageSubmit() {
+/*function handleImageSubmit() {
   const addFormCard = document.querySelector(".popupimage__form");
   const title = addFormCard.querySelector(".popupimage__name").value;
   const link = addFormCard.querySelector(".popupimage__job").value;
@@ -125,29 +125,24 @@ function handleImageSubmit() {
       initialSection.clear();
       initialSection.renderItems();
   })
-}
+}*/
 
- function handlePictureSubmit() {
-  const addAvatar = document.querySelector(".popup__picture-form");
-  const avatar = addAvatar.querySelector(".popup__picture-link");
-  api.updateAvatar(avatar).then(newAvatar => {
-    avatarImage.src = newAvatar.src;
-    popupPicture.close();
-  })
-}
+const newPopupImage = new PopupWithForm({
+  popupSelector: "#popupImage",
+  handleFormSubmit: (data) => {
+    api.addCard({title: data.title, link: data.link}).then((card) => {
+      initialSection.prependItem(card);
+      initialSection.clear();
+      initialSection.renderItems();
+        newPopupImage.close();
+      })
+      .catch((err) => console.log(err));
+  },
+  submitButton: ".popupimage__save",
+});
 
-function handleProfileSubmit() {
-  const addInfo = document.querySelector(".popupprofile-form");
-  const name = document.querySelector(".popupprofile__name"); 
-  const about = document.querySelector(".popupprofile__job") ;
-  api.updateUser(name, about).then( info => {
-    document.querySelector('.profile__name').textContent = name.value; 
-    document.querySelector(".profile__explorador").textContent = about.value; 
-    newPopupInfo.close();
-  })
-}
 
-/*const newPopupInfo = new PopupWithForm({
+const newPopupInfo = new PopupWithForm({
   popupSelector: "#popupProfile",
   handleProfileSubmit: (data) => {
     api.updateUser({name: data.name, about: data.about}).then((res) => {
@@ -156,9 +151,9 @@ function handleProfileSubmit() {
       }).catch((err) => console.log(err));
   },
   submitButton: ".popupprofile__save",
-});*/
+});
 
-/*const newPopupPicture = new PopupWithForm({
+const newPopupPicture = new PopupWithForm({
   popupSelector: ".popup__picture",
   handleFormSubmit: (data) => {
     const avatar = data.link;
@@ -169,4 +164,4 @@ function handleProfileSubmit() {
       .catch((err) => console.log(err));
   },
   submitButton: ".popup__picture-save",
-});*/
+});
