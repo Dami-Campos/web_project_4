@@ -30,7 +30,6 @@ api.getCards().then(cardsResult => {
   initialSection.renderItems();
 })
 
-
 formsElements.forEach((form) => {
     const formValidator = new FormValidator(form, selectors);
     formValidator.enableValidation();
@@ -88,8 +87,8 @@ formsElements.forEach((form) => {
         const newCard = new Card(
           {
             data,
-            handleCardClick: (name, link) => {
-              previewPopup.open(name, link);
+            handleCardClick: (title, link) => {
+              previewPopup.open(title, link);
             },
             callbacks: {
               deleteCard()/*porque aqui no hay parametro*/{
