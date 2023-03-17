@@ -11,10 +11,14 @@ import Api from "./component/Api.js"
 import { selectors, formsElements, /*popupPicture, avatarImage*/ } from "./component/utils/Utils.js";
 
 let newUserInfo = new UserInfo({
-  uName: ".profile__name",
-  uJob: ".profile__explorador",
-  uAvatar: ".profile__avatar-image"
+  uName: profileName,
+  uJob: profileAbout,
+  uAvatar: profileAvatar,
 });
+
+const profileName = document.querySelector(".profile__name");
+const profileAbout = document.querySelector(".profile__explorador");
+const profileAvatar = document.querySelector(".profile__avatar-image");
 
 
 const api = new Api({
