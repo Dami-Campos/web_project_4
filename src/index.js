@@ -179,5 +179,3 @@ function createCard(data) {
   );
   return newCard.generateCard();
 }
-
-
