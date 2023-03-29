@@ -1,7 +1,31 @@
-//import {newPopupInfo} from "../../index.js"
+export const openFormProfile = document.querySelector('.profile__open');
+
+export const openCardButton = document.querySelector('.profile__imageform-open');
+
+export const formEdit = document.querySelector('.popupprofile__form');
+
+export const formImage = document.querySelector('.popupimage__form');
+
+export const formProfileImage = document.querySelector('.popup__picture-form');
+
+export const profileTitle = document.querySelector('.profile__name');
+
+export const profileProfession = document.querySelector('.profile__explorador');
+
+export const profileImage = document.querySelector('.profile__avatar-image');
+
+export const deleteCardSubmitButton = document.querySelector('.popup__delete-save');
+
+export const editProfileSubmitButton = document.querySelector('.popupprofile__save');
+
+export const profileImageSubmitButton = document.querySelector('.popup__picture-save');
+
+export const profileImageOverlay = document.querySelector('.profile__avatar-image');
+
+export const addCardSubmitButton = document.querySelector('.popupimage__save');
 
 
-export const initialCards = [
+export const initialCards = [ 
   {
     title: "Valle de Yosemite",
     link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
@@ -38,31 +62,3 @@ export const selectors = {
   inputErrorClass: "form__input_type_error",
   errorClass: "form__input-error_active",
 };
-
-export const formsElements = document.querySelectorAll('.popupprofile__form');
-export const popupCloseButton = document.querySelector(".popup__close-button");
- const avatarImage = document.querySelector(".profile__avatar-image");
- const popupPicture = document.querySelector(".popup__picture");
-
-
-function handleProfileSubmit() {
-  const addInfo = document.querySelector(".popupprofile-form");
-  const name = document.querySelector(".popupprofile__name"); 
-  const about = document.querySelector(".popupprofile__job") ;
-  api.updateUser(name, about).then( info => {
-    document.querySelector('.profile__name').textContent = name.value; 
-    document.querySelector(".profile__explorador").textContent = about.value; 
-    newPopupInfo.close();
-  })
-}
-
-/*export function handleImageSubmit() {
-  const addFormCard = document.querySelector(".popupimage__form");
-  const title = addFormCard.querySelector(".popupimage__name").value;
-  const link = addFormCard.querySelector(".popupimage__job").value;
-  api.addCard(title, link).then(card => {
-    initialSection.prepend(card);
-  })
-}*/
-
-

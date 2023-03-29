@@ -46,7 +46,7 @@
     </header>
     <section class="profile">
       <div class="profile__avatar">
-        <img id="openFormPicture" class="profile__avatar-image" src="<%=require('./images/Jaques_Cousteau.jpg')%>" alt="Jacques Cousteau">
+        <img class="profile__avatar-image" src="<%=require('./images/Jaques_Cousteau.jpg')%>" alt="Jacques Cousteau"> 
       </div>
       <div class="profile__info">
         <div class="profile__name-rectangle">
@@ -61,14 +61,8 @@
         <img class="profile__vector" src="<%=require('./images/main__vector.png')%>" alt="diminuta cruz">
       </div>
     </section>
-    <section class="popup popup__delete">
-      <div class="popupimage__close"><button class="popupimage__closebutton popup__close-button" type="button" id="closeImage"><img class="popup__close-image" src="<%=require('./images/close_icon.png')%>" alt="Cerrar página"></button></div>
-      <div class="popupimage__container">
-        <h3 class="popupimage__header">¿Estás seguro/a?</h3> 
-        <button  class="popup__delete-save form__submit" type="submit">Sí</button>
-    </section>
-    <section class="popup popup__picture">
-      <div class="popup__close"><button class="popup__closebutton popup__close-button" type="button" id="closeImage"><img class="popup__close-image" src="<%=require('./images/close_icon.png')%>" alt="Cerrar página"></button></div>
+    <<section class="popup popup__picture">
+      <div class="popup__close"><button class="popup__closebutton popup__close-button" type="button" id="closeImage"><img class="popup__close-image" src="./close_icon.png" alt="Cerrar página"></button></div>
       <div class="popup__picture-container">
         <h3 class="popup__picture-header">Cambiar foto de perfil</h3> 
         <form  class="popup__picture-form form" name="register_image">
@@ -76,7 +70,13 @@
           <span class="form__error form-link-error"></span> 
         <button  class="popup__picture-save form__submit" type="submit">Guardar</button>
         </form>
-    </section>  
+    </section> 
+    <section class="popup popup__delete">
+      <div class="popupimage__close"><button class="popupimage__closebutton popup__close-button" type="button" id="closeImage"><img class="popup__close-image" src="<%=require('./images/close_icon.png')%>" alt="Cerrar página"></button></div>
+      <div class="popupimage__container">
+        <h3 class="popupimage__header">¿Estás seguro/a?</h3> 
+        <button  class="popup__delete-save form__submit" type="submit">Sí</button>
+    </section>
     <section>
       <ul class="elements"></ul>
     </section>
@@ -88,9 +88,9 @@
       <li class="element">
         <img id="trash" class="element__trash"  src="<%=require('./images/Trash.png')%>" alt="Bote de basura">
         <img id="open"  class="element__image" alt="Paisaje">
+        <p class="element__count"></p>
         <div class="element__group">
           <h2 class="element__name"></h2>
-          <p class="element__count"></p>
           <button class="element__like"></button>
         </div>
         </li>

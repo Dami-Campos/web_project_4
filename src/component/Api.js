@@ -42,7 +42,7 @@
           .catch(error => console.log('error', error));
     }
 
-    updateUser({name, about}){
+    setUserInfo({name, about}){
         const requestOptions = {
           method: 'PATCH',
          headers: this.getHeaders(),
@@ -57,13 +57,13 @@
           .catch(error => console.log('error', error));
     }
 
-    addCard(title, link){
+    addCard({name, link}){
          const requestOptions = {
           method: 'POST',
           headers: this.getHeaders(),
           refirect: "follow",
           body: JSON.stringify({
-            title: title,
+            name: name,
             link: link,
           }),
         };
@@ -73,7 +73,7 @@
           .catch(error => console.log('error', error));
     }
 
-    updateAvatar(avatar){
+    setUserAvatar(avatar){
       const requestOptions = {
         method: 'PATCH',
         headers: this.getHeaders(),
@@ -85,7 +85,7 @@
         .catch(error => console.log('error', error));
     }
 
-    like(cardId){
+    addLike(cardId){
       const requestOptions = {
         method: 'PUT',
         headers:this.getHeaders(),
