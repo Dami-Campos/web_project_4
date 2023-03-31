@@ -84,7 +84,7 @@ api
           popupSelector: '.popupimage',
           handleFormSubmit: (data) => {
             api
-              .addCard({name: data['title-image'], link: data['link-image']})
+              .addCard({name: data.name, link: data['link-image']})
               .then((newCard) => {
                 const newCardElement = createCard(newCard);
                 cardRender.addItem(newCardElement);
