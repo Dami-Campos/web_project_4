@@ -69,9 +69,10 @@ _getTemplate() {
         this._handleDeleteClick({id: this._id});
       });
       
-      this._elementImage.addEventListener('click', () =>
+      this._elementImage.addEventListener('click', () =>{
+      console.log(this._name, this._link)
       this._handleCardClick({name: this._name, link: this._link})
-      );
+  });
       
       if (this._ownerId !== this._user) {
         this._element.querySelector('.card__delete-button').remove();
@@ -83,7 +84,7 @@ _getTemplate() {
       
       this._elementName.textContent = this._name;
       this._elementImage.src = this._link;
-      this._elementCount.textContent = this._arrayLikes.lenght;
+      this._elementCount.textContent = this._arrayLikes.length;
       
       const hasUserLiked = this._arrayLikes.some(
         (like) => like._id === this._user

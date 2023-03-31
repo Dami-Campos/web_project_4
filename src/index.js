@@ -33,7 +33,7 @@ popupProfileValidate.enableValidation();
 formImageValidate.enableValidation();
 popupPictureValidate .enableValidation();
 
-export const previewPopup = new PopupWithImage('#imageOpen');
+ const previewPopup = new PopupWithImage('#imageOpen');
 previewPopup.setEventListeners();
 
 const editProfile = new PopupWithForm({
@@ -129,7 +129,7 @@ profileImageOverlay.addEventListener('click', () => {
 });
 
  const deleteCard = new PopupWithConfirmation({
-  popupSelector: '.popup_delete',
+  popupSelector: '.popup__delete',
   submitButton: deleteCardSubmitButton,
 });
 
@@ -139,7 +139,7 @@ function createCard(data) {
   const newCard = new Card(
     {
       data,
-      handleCardClick: ({name, link}) => {
+      handleCardClick: function ({name, link}) {
         previewPopup.open({name, link});
       },
       handleDeleteClick: ({id}) => {

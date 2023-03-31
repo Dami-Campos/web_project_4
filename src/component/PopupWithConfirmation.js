@@ -7,6 +7,8 @@ export default class PopupWithConfirmation extends Popup {
     this._submitButton = submitButton;
     this._previewText = submitButton.textContent;
   }
+  
+
 
   close() {
     super.close();

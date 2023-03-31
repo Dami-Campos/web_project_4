@@ -8,6 +8,9 @@
 .profile__avatar:hover {
   background-image: url("../../../images/vector_profile.png");
   background-repeat: no-repeat;
-  opacity: 0.5;
   background-position: 50% 50%;
+}
+
+.profile__avatar:hover .profile__avatar-image {
+  opacity: .3;
 }
