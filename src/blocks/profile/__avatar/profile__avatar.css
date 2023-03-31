@@ -1,8 +1,6 @@
 .profile__avatar {
   width: 120px;
   height: 120px;
-  position: relative;
-  z-index:12;
 }
 
 .profile__avatar:hover {
