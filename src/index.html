@@ -86,14 +86,16 @@
       <h3 class="footer__text">© 2021 Alrededor de los EEUU</h3>
     </footer>
 
-    <template id="template">
+    <template id="template" class="template">
       <li class="element">
         <img id="trash" class="card__delete-button"  src="<%=require('./images/Trash.png')%>" alt="Bote de basura">
         <img id="open"  class="element__image" alt="Paisaje">
-        <p class="element__count"></p>
         <div class="element__group">
           <h2 class="element__name"></h2>
+          <div class="element__right">
           <button class="element__like"></button>
+          <p class="element__count"></p>
+          </div>
         </div>
         </li>
     </template>

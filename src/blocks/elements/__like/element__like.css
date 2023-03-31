@@ -2,11 +2,11 @@
   width: 21px;
   height: 19px;
   padding-left: 20px;
+  margin-top: 22px;
   border: none;
   background: none;
   background-repeat: no-repeat;
   background-image: url('../../../images/vector_like.png');
-  margin-top: -10px;
 }
     
   .element__like:hover {

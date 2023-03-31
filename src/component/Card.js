@@ -23,7 +23,7 @@ export default class Card {
       
 _getTemplate() {
   return document
-  .querySelector(this._template)
+  .querySelector(this._selector)
   .content.querySelector('.element')
   .cloneNode(true);
 }

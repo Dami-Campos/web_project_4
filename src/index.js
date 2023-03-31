@@ -174,7 +174,7 @@ function createCard(data) {
       },
       userId: userInfo.userId,
     },
-    '.template'
+    '#template'
   );
   return newCard.generateCard();
 }
