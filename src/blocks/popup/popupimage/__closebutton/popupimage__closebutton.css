@@ -8,4 +8,25 @@
 .popupimage__closebutton:hover {
   opacity: 0.5;
 }
-            
+
+.popupdelete__closebutton {
+  height: 40px;
+  max-width: 40px;
+  background: none;
+  border: none;
+  }
+
+.popupdelete__closebutton:hover {
+  opacity: 0.5;
+}
+
+.popuppicture__closebutton {
+  height: 40px;
+  max-width: 40px;
+  background: none;
+  border: none;
+  }
+
+.popuppicture__closebutton:hover {
+  opacity: 0.5;
+}
