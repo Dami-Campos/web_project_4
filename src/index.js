@@ -98,7 +98,6 @@ api
         newPopupImage.setEventListeners();
 
         profileAdd.addEventListener('click', () => {
-          console.log("hola")
           newPopupImage.open();
         });
       })
@@ -107,7 +106,7 @@ api
   .catch((err) => console.log(err));
 
   const newPopupPicture = new PopupWithForm({
-  popupSelector: '.popup__picture',
+  popupSelector: '.popuppicture',
   handleFormSubmit: (data) => {
     const avatar = data['link-image'];
     api
@@ -124,12 +123,11 @@ api
 newPopupPicture.setEventListeners();
 
 profileImageOverlay.addEventListener('click', () => {
-  console.log("hola")
   newPopupPicture.open();
 });
 
  const deleteCard = new PopupWithConfirmation({
-  popupSelector: '.popup__delete',
+  popupSelector: '.popupdelete',
   submitButton: deleteCardSubmitButton,
 });
 

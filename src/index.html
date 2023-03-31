@@ -40,6 +40,24 @@
         <h3 class="popup__footer"></h3>
       </div>
     </section>
+    <<section class="popuppicture popup">
+      <div class="popup__close"><button class="popup__closebutton popup__close-button" type="button"><img class="popup__close-image" src="<%=require('./images/close_icon.png')%>" alt="Cerrar página"></button></div>
+      <div class="popuppicture__container">
+        <h3 class="popuppicture__header">Cambiar foto de perfil</h3> 
+        <form  class="popuppicture__form form" name="register_image">
+          <input class="popuppicture__link form__input" type="url" name="link" placeholder="Enlace de la imagen">
+          <span class="form__error form-link-error"></span> 
+        <button  class="popuppicture__save form__submit popup__button" type="submit">Guardar</button>
+        </form>
+      </div>
+    </section> 
+    <section class="popupdelete popup">
+      <div class="popupimage__close"><button class="popupimage__closebutton popup__close-button" type="button"><img class="popup__close-image popup__close-button" src="<%=require('./images/close_icon.png')%>" alt="Cerrar página"></button></div>
+      <div class="popupdelete__container">
+        <h3 class="popupimage__header">¿Estás seguro/a?</h3> 
+        <button  class="popupdelete__save form__submit popup__button" type="submit">Sí</button>
+      </div>
+    </section>
     <header class="header">
       <img class="header__vector" src="<%=require('./images/Vector.png')%>"  alt="Around the us">
       <div class="header__line"></div>
@@ -59,24 +77,6 @@
       </div>
       <div id="openImage" class="profile__add">
         <img class="profile__vector" src="<%=require('./images/main__vector.png')%>" alt="diminuta cruz">
-      </div>
-    </section>
-    <<section class="popuppicture popup">
-      <div class="popup__close"><button class="popup__closebutton popup__close-button" type="button"><img class="popup__close-image" src="<%=require('./images/close_icon.png')%>" alt="Cerrar página"></button></div>
-      <div class="popup__picture-container">
-        <h3 class="popup__picture-header">Cambiar foto de perfil</h3> 
-        <form  class="popup__picture-form form" name="register_image">
-          <input class="popup__picture-link form__input" type="url" name="link" placeholder="Enlace de la imagen">
-          <span class="form__error form-link-error"></span> 
-        <button  class="popup__picture-save form__submit popup__button" type="submit">Guardar</button>
-        </form>
-      </div>
-    </section> 
-    <section class="popupdelete popup">
-      <div class="popupimage__close"><button class="popupimage__closebutton popup__close-button" type="button"><img class="popup__close-image popup__close-button" src="<%=require('./images/close_icon.png')%>" alt="Cerrar página"></button></div>
-      <div class="popup__delete-container">
-        <h3 class="popupimage__header">¿Estás seguro/a?</h3> 
-        <button  class="popup__delete-save form__submit popup__button" type="submit">Sí</button>
       </div>
     </section>
     <section>

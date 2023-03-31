@@ -6,7 +6,7 @@ export const popupProfileForm = document.querySelector('.popupprofile__form');
 
 export const formImage = document.querySelector('.popupimage__form');
 
-export const popupPictureForm = document.querySelector('.popup__picture-form');
+export const popupPictureForm = document.querySelector('.popuppicture__form');
 
 export const profileName = document.querySelector('.profile__name');
 
@@ -14,11 +14,11 @@ export const profileAbout = document.querySelector('.profile__explorador');
 
 export const profileImage = document.querySelector('.profile__avatar-image');
 
-export const deleteCardSubmitButton = document.querySelector('.popup__delete-save');
+export const deleteCardSubmitButton = document.querySelector('.popupdelete__save');
 
 export const editProfileSubmitButton = document.querySelector('.popupprofile__save');
 
-export const profileImageSubmitButton = document.querySelector('.popup__picture-save');
+export const profileImageSubmitButton = document.querySelector('.popuppicture__save');
 
 export const profileImageOverlay = document.querySelector('.profile__avatar-image');
 
