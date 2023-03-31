@@ -1,16 +1,16 @@
-export const openFormProfile = document.querySelector('.profile__open');
+export const profileOpen = document.querySelector('.profile__open');
 
-export const openCardButton = document.querySelector('.profile__imageform-open');
+export const profileAdd = document.querySelector('.profile__add');
 
-export const formEdit = document.querySelector('.popupprofile__form');
+export const popupProfileForm = document.querySelector('.popupprofile__form'); 
 
 export const formImage = document.querySelector('.popupimage__form');
 
-export const formProfileImage = document.querySelector('.popup__picture-form');
+export const popupPictureForm = document.querySelector('.popup__picture-form');
 
-export const profileTitle = document.querySelector('.profile__name');
+export const profileName = document.querySelector('.profile__name');
 
-export const profileProfession = document.querySelector('.profile__explorador');
+export const profileAbout = document.querySelector('.profile__explorador');
 
 export const profileImage = document.querySelector('.profile__avatar-image');
 

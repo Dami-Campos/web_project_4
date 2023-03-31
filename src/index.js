@@ -8,7 +8,7 @@ import PopupWithConfirmation from "./component/PopupWithConfirmation";
 import Section from "./component/Section.js"
 import UserInfo from "./component/UserInfo.js"
 import Api from "./component/Api.js"
-import {  selectors, openFormProfile, formEdit, formImage, formProfileImage, profileTitle, profileProfession, profileImage, openCardButton, addCardSubmitButton, deleteCardSubmitButton, editProfileSubmitButton, profileImageSubmitButton, profileImageOverlay, } from "./component/utils/Utils.js";
+import {  selectors, profileOpen, popupProfileForm, formImage, popupPictureForm, profileName, profileAbout, profileImage, profileAdd , addCardSubmitButton, deleteCardSubmitButton, editProfileSubmitButton, profileImageSubmitButton, profileImageOverlay, } from "./component/utils/Utils.js";
 
 
 const api = new Api({
@@ -19,57 +19,56 @@ const api = new Api({
   },
 });
 
-const profilePopupValidator = new FormValidator(formEdit, selectors);
-const imagePopupValidator = new FormValidator(formImage, selectors);
-const profileImagePopupValidator = new FormValidator(formProfileImage, selectors);
+const userInfo = new UserInfo({
+  userName: profileName,
+  userOcupation: profileAbout,
+  userAvatar: profileImage,
+});
 
-profilePopupValidator.enableValidation();
-imagePopupValidator.enableValidation();
-profileImagePopupValidator.enableValidation(); 
+const popupProfileValidate = new FormValidator(popupProfileForm, selectors);
+const formImageValidate = new FormValidator(formImage, selectors);
+const popupPictureValidate = new FormValidator(popupPictureForm, selectors);
 
- export const previewPopup = new PopupWithImage('.popup__preview-image');
+popupProfileValidate.enableValidation();
+formImageValidate.enableValidation();
+popupPictureValidate .enableValidation();
+
+export const previewPopup = new PopupWithImage('#imageOpen');
 previewPopup.setEventListeners();
 
-const editPopup = new PopupWithForm({
+const editProfile = new PopupWithForm({
   popupSelector: '.popupprofile',
   handleFormSubmit: (data) => {
     api
       .setUserInfo({name: data.name, about: data.about})
       .then((res) => {
-        profileInfo.setUserInfo({username: res.name, userocupation: res.about});
+        userInfo.setUserInfo({username: res.name, userocupation: res.about});
 
-        editPopup.close();
+        editProfile.close();
       })
       .catch((err) => console.log(err));
   },
   submitButton: editProfileSubmitButton,
 });
 
-editPopup.setEventListeners();
+editProfile.setEventListeners();
 
-export const profileUser = new UserInfo({
-  userName: profileTitle,
-  userOcupation: profileProfession,
-  userAvatar: profileImage,
-});
-
-openFormProfile.addEventListener('click', () => {
-  console.log("hola")
-  editPopup.open();
+profileOpen.addEventListener('click', () => {
+  editProfile.open();
 });
 
 api
   .getUserInfo()
   .then((res) => {
-    profileUser.setUserInfo({username: res.name, userocupation: res.about});
-    profileUser.setUserAvatar(res.avatar);
-    profileUser.userId = res._id;
+    userInfo.setUserInfo({username: res.name, userocupation: res.about});
+    userInfo.setUserAvatar(res.avatar);
+    userInfo.userId = res._id;
   })
   .then(() => {
     api
       .getCards()
       .then((res) => {
-        const cardRender = new Section(
+        const cardRender= new Section(
           {
             items: res,
             renderer: (data) => {
@@ -83,9 +82,9 @@ api
 
         const newPopupImage = new PopupWithForm({
           popupSelector: '.popupimage',
-          handleFormSubmit: (formData) => {
+          handleFormSubmit: (data) => {
             api
-              .addCard({title: formData['title-image'], link: formData['link-image']})
+              .addCard({name: data['title-image'], link: data['link-image']})
               .then((newCard) => {
                 const newCardElement = createCard(newCard);
                 cardRender.addItem(newCardElement);
@@ -98,7 +97,7 @@ api
 
         newPopupImage.setEventListeners();
 
-        openCardButton.addEventListener('click', () => {
+        profileAdd.addEventListener('click', () => {
           console.log("hola")
           newPopupImage.open();
         });
@@ -107,14 +106,14 @@ api
   })
   .catch((err) => console.log(err));
 
-const newPopupPicture = new PopupWithForm({
+  const newPopupPicture = new PopupWithForm({
   popupSelector: '.popup__picture',
   handleFormSubmit: (data) => {
     const avatar = data['link-image'];
     api
       .setUserAvatar(avatar)
       .then(() => {
-        profileUser.setUserAvatar(avatar);
+        userInfo.setUserAvatar(avatar);
         newPopupPicture.close();
       })
       .catch((err) => console.log(err));
@@ -129,7 +128,7 @@ profileImageOverlay.addEventListener('click', () => {
   newPopupPicture.open();
 });
 
-export const deleteCard = new PopupWithConfirmation({
+ const deleteCard = new PopupWithConfirmation({
   popupSelector: '.popup_delete',
   submitButton: deleteCardSubmitButton,
 });
@@ -140,8 +139,8 @@ function createCard(data) {
   const newCard = new Card(
     {
       data,
-      handleCardClick: ({title, link}) => {
-        previewPopup.open({title, link});
+      handleCardClick: ({name, link}) => {
+        previewPopup.open({name, link});
       },
       handleDeleteClick: ({id}) => {
         deleteCard.open();
@@ -160,7 +159,7 @@ function createCard(data) {
           .addLike(id)
           .then((res) => {
             newCard.updateLikes(res.likes);
-            newCard.addHeart();
+            newCard.addLike();
           })
           .catch((err) => console.log(err));
       },
@@ -169,11 +168,11 @@ function createCard(data) {
           .removeLike(id)
           .then((res) => {
             newCard.updateLikes(res.likes);
-            newCard.removeHeart();
+            newCard.removeLike();
           })
           .catch((err) => console.log(err));
       },
-      userId: profileUser.userId,
+      userId: userInfo.userId,
     },
     '.template'
   );

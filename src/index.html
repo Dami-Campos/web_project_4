@@ -52,7 +52,7 @@
         <div class="profile__name-rectangle">
           <h1 class="profile__name">Jacques Cousteau</h1> 
           <div class="profile__rectangle">
-            <a id="openProfile" href="#"><button type="button" class="profile__button"><img class="profile__button-image" src="<%=require('./images/main__symbol.png')%>" alt="linea diagonal"></button></a>
+            <a id="openProfile" href="#"><button type="button" class="profile__button profile__open "><img class="profile__button-image" src="<%=require('./images/main__symbol.png')%>" alt="linea diagonal"></button></a>
           </div> 
         </div> 
         <h2 class="profile__explorador">Explorador</h2>
@@ -75,7 +75,9 @@
       <div class="popupimage__close"><button class="popupimage__closebutton popup__close-button" type="button" id="closeImage"><img class="popup__close-image" src="<%=require('./images/close_icon.png')%>" alt="Cerrar página"></button></div>
       <div class="popupimage__container">
         <h3 class="popupimage__header">¿Estás seguro/a?</h3> 
+        <form  class="popup__picture-form form" name="register_image">
         <button  class="popup__delete-save form__submit" type="submit">Sí</button>
+        </form>
     </section>
     <section>
       <ul class="elements"></ul>
@@ -86,7 +88,7 @@
 
     <template id="template">
       <li class="element">
-        <img id="trash" class="element__trash"  src="<%=require('./images/Trash.png')%>" alt="Bote de basura">
+        <img id="trash" class="card__delete-button"  src="<%=require('./images/Trash.png')%>" alt="Bote de basura">
         <img id="open"  class="element__image" alt="Paisaje">
         <p class="element__count"></p>
         <div class="element__group">
