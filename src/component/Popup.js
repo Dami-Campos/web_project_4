@@ -23,6 +23,7 @@ close() {
 
   _isClickOutside(evt) {
     return (
+      evt.target.classList.contains('popup__opened') ||
       evt.target.classList.contains('popup') ||
       evt.target.classList.contains('popup__close-image')
     );

@@ -12,7 +12,7 @@ import {  selectors, profileOpen, popupProfileForm, formImage, popupPictureForm,
 
 
 const api = new Api({
-  url: "https://around.nomoreparties.co/v1/web_es_cohort_04",
+  baseUrl: 'https://around.nomoreparties.co/v1/web_es_cohort_04',
   headers: {
     authorization: "8497370c-558e-4854-8c70-728ddddc967f",
     'Content-Type': 'application/json',
@@ -147,7 +147,7 @@ function createCard(data) {
             .deleteCard(id)
             .then(() => {
               deleteCard.close();
-              newCard._deleteButton();
+              newCard._removeCard();
             })
             .catch((err) => console.log(err));
         });

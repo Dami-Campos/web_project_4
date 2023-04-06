@@ -1,112 +1,56 @@
   export default class Api {
-    constructor(options){
-        this._options = options; 
+    constructor({baseUrl, headers}) {
+      this._baseUrl = baseUrl;
+      this._headers = headers;
     }
 
-    getHeaders(){
-      return this._options.headers;
+    _handleResponse(res) {
+      if (!res.ok) {
+        throw new Error(`Error: ${res.status}`);
+      }
+      return res.json();
+    }
+
+    _requestOptions(method, url, body) {
+      return fetch(url, {
+        method: method,
+        headers: this._headers,
+        body: body ? JSON.stringify(body) : undefined,
+      }).then((res) => {
+        return this._handleResponse(res);
+      });
     }
 
     getCards(){  
-        const requestOptions = {
-          method: 'GET',
-          headers: this.getHeaders(),
-        };
-        
-        return fetch(`${this._options.url}/cards`, requestOptions)
-          .then(response => response.json())
-          .catch(error => console.log('error', error));
+      return this._requestOptions('GET', `${this._baseUrl}/cards`);
     }
     
     getUserInfo(){
-        const requestOptions = {
-          method: 'GET',
-          headers: this.getHeaders(),
-
-        };
-        
-        return fetch(`${this._options.url}/users/me`, requestOptions)
-          .then(response => response.json())
-          .catch(error => console.log('error', error));
+      return this._requestOptions('GET', `${this._baseUrl}/users/me`);
     }
     
     deleteCard(cardId){
-        const requestOptions = {
-          method: 'DELETE',
-          headers: this.getHeaders(),
-          refirect: "follow",
-        };
-        
-        return fetch(`${this._options.url}/cards/${cardId}`, requestOptions)
-          .then(response => response.json())
-          .catch(error => console.log('error', error));
+      return this._requestOptions('DELETE', `${this._baseUrl}/cards/${cardId}`);
     }
 
     setUserInfo({name, about}){
-        const requestOptions = {
-          method: 'PATCH',
-         headers: this.getHeaders(),
-          body: JSON.stringify({
-            name: name,
-            about: about,
-          })
-        };
-        
-        return fetch(`${this._options.url}/users/me`, requestOptions)
-          .then(response => response.json())
-          .catch(error => console.log('error', error));
+      return this._requestOptions('PATCH', `${this._baseUrl}/users/me`, {name, about});
     }
 
     addCard({name, link}){
-         const requestOptions = {
-          method: 'POST',
-          headers: this.getHeaders(),
-          refirect: "follow",
-          body: JSON.stringify({
-            name: name,
-            link: link,
-          }),
-        };
-        
-        return fetch(`${this._options.url}/cards`, requestOptions)
-          .then(response => response.json())
-          .catch(error => console.log('error', error));
+      return this._requestOptions('POST', `${this._baseUrl}/cards`, {name, link});
     }
 
     setUserAvatar(avatar){
-      const requestOptions = {
-        method: 'PATCH',
-        headers: this.getHeaders(),
-        refirect: "follow",
-      };
-      
-      return fetch(`${this._options.url}/users/me/${avatar}`, requestOptions)
-        .then(response => response.json())
-        .catch(error => console.log('error', error));
+      return this._requestOptions('PATCH', `${this._baseUrl}/users/me/avatar`, {avatar});
     }
 
     addLike(cardId){
-      const requestOptions = {
-        method: 'PUT',
-        headers:this.getHeaders(),
-        refirect: "follow",
-      };
-      
-      return fetch(`${this._options.url}/cards/likes/${cardId}`, requestOptions)
-        .then(response => response.json())
-        .catch(error => console.log('error', error));
+      return this._requestOptions('PUT', `${this._baseUrl}/cards/likes/${cardId}`);
     }
 
     removeLike  (cardId){
-      const requestOptions = {
-        method: 'DELETE',
-        headers: this.getHeaders(),
-        refirect: "follow",
-      };
-      
-      return fetch(`${this._options.url}/cards/likes/${cardId}`, requestOptions)
-        .then(response => response.json())
-        .catch(error => console.log('error', error));
+      return this._requestOptions('DELETE', `${this._baseUrl}/cards/likes/${cardId}`);
     }
 
 

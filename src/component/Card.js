@@ -1,5 +1,12 @@
 export default class Card {
-  constructor({data, handleCardClick, handleDeleteClick, handleLikeAdd, handleLikeDelete, userId,}, selector){
+  constructor({
+    data, 
+    handleCardClick, 
+    handleDeleteClick, 
+    handleLikeAdd, 
+    handleLikeDelete, 
+    userId,}, 
+    selector){
     this._name = data.name;
     this._link = data.link;
     this._selector = selector;
@@ -12,13 +19,15 @@ export default class Card {
     this._handleDeleteClick = handleDeleteClick;
     this._handleLikeAdd = handleLikeAdd;
     this._handleLikeDelete = handleLikeDelete;
-
     this._element = this._getTemplate();
-    
-    this._elementLike = this._element.querySelector('.element__like');
-    this._elementCount = this._element.querySelector('.element__count');
-    this._elementImage = this._element.querySelector('.element__image');
-    this._elementName = this._element.querySelector('.element__name');
+    this._elementLike = 
+    this._element.querySelector('.element__like');
+    this._elementCount = 
+    this._element.querySelector('.element__count');
+    this._elementImage = 
+    this._element.querySelector('.element__image');
+    this._elementName = 
+    this._element.querySelector('.element__name');
 }
       
 _getTemplate() {
@@ -41,7 +50,7 @@ _getTemplate() {
     }
   }
 
-  _deleteButton() {
+  _removeCard() {
     const trashButton = this._element.querySelector('.card__delete-button');
     trashButton.closest('.element').remove();
   }
@@ -70,7 +79,6 @@ _getTemplate() {
       });
       
       this._elementImage.addEventListener('click', () =>{
-      console.log(this._name, this._link)
       this._handleCardClick({name: this._name, link: this._link})
   });
       
